@@ -1,0 +1,29 @@
+{
+  "name": "app-id-cli",
+  "version": "0.0.3",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "bin": {
+    "app-id-cli": "./src/index.js"
+  },
+  "author": "Tal Aviel",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "enquirer": "^2.3.2",
+    "inquirer": "^7.0.0",
+    "prompts": "^2.3.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "rimraf": "^3.0.0",
+    "tar": "^5.0.5"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.2"
+  },
+  "repository": "github:TalAviel/app-id-cli"
+}
