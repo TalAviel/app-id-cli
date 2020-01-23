@@ -7,16 +7,18 @@ class Logger {
                 console.log(...arguments);
             },
             debug: function() {
-                let result = '';
-                for (let arg of arguments) {
-                    if (typeof(arg) === 'object') {
-                        result += JSON.stringify(arg) + '';
-                    } else {
-                        result += arg;
+                if (process.env.DEBUG) {
+                    let result = '';
+                    for (let arg of arguments) {
+                        if (typeof (arg) === 'object') {
+                            result += JSON.stringify(arg) + '';
+                        } else {
+                            result += arg;
+                        }
                     }
+                    // console.debug(chalk.gray(...arguments));
+                    console.debug(chalk.gray(result));
                 }
-                // console.debug(chalk.gray(...arguments));
-                console.debug(chalk.gray(result));
             },
             error: function () {
                 // console.error(chalk.red(...arguments));

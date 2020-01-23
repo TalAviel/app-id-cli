@@ -14,9 +14,8 @@ async function perform() {
 
     if(confirm) {
         await rc.unprovision(guid);
+        await context.updateInstance(null);
     }
-
-    await context.updateInstance(null);
 }
 
 // (async () => {

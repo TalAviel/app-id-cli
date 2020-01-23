@@ -2,6 +2,7 @@ const rc = require('../ibm-cloud-api/resource-controller').instance;
 const context = require('../modules/context').instance;
 const provision = require('../actions/provision').perform;
 const {select} = require('../ux');
+const chalk = require('chalk');
 
 
 async function title() {
@@ -19,7 +20,7 @@ async function perform() {
 
     choices = choices.concat(instances.map(i => {
         return {
-            name: `${i.name} (${i.region_id}, ${i.created_at})`,
+            name: chalk.bold(i.name) + ' ' + chalk.gray(`(${i.region_id}, ${i.guid})`),
             value: i
         }
     }));

@@ -22,6 +22,14 @@ class IAMResource {
                 'apikey': staging ? API_KEY_STAGING : API_KEY
             },
             json: true
+        }).catch(e => { //TODO cleanup all request-promise errors
+            logger.debug(e.options);
+            logger.debug(e.error);
+            logger.debug(e.response);
+            e.options && delete e.options;
+            e.error && delete e.error;
+            e.response && delete e.response;
+            throw e;
         });
         const accessToken = response.access_token;
         if (!accessToken) {

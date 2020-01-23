@@ -16,10 +16,13 @@ async function perform() {
     if (!resourceGroupId) return;
 
     const region = await chooseRegion();
+    if (!region) return;
 
     const planId = await choosePlan();
+    if (!planId) return;
 
     const name = await text('Please type a name for your new App ID instance');
+    if (!name) return;
 
     logger.info(`Provisioning new App ID instance ${name}...`);
 

@@ -32,8 +32,14 @@ class Main {
     }
 
     async showActions() {
-        if (!await this.setCurrentInstance()) {
-            logger.info('Instance was not selected, exiting.');
+        try {
+            if (!await this.setCurrentInstance()) {
+                logger.info('Instance was not selected, exiting.');
+                return;
+            }
+        } catch(e) {
+            logger.error('Error occurred.');
+            logger.error(e);
             return;
         }
 
